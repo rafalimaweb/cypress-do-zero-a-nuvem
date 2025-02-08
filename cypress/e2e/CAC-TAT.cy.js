@@ -10,7 +10,7 @@ describe("Central de Atendimento ao Cliente TAT", () => {
 
     cy.get("#firstName").type("Valmir");
     cy.get("#lastName").type("Lima");
-    cy.get("#email").type("limarafa9@gmail.com");
+    cy.get("#email").type("testeemail@gmail.com");
     cy.get("#open-text-area").type(longText, { delay: 0 });
 
     cy.contains("button", "Enviar").click();
@@ -34,7 +34,7 @@ describe("Central de Atendimento ao Cliente TAT", () => {
 
     cy.get("#firstName").type("Valmir");
     cy.get("#lastName").type("Lima");
-    cy.get("#email").type("limarafa9@gmail.com");
+    cy.get("#email").type("testeemail@gmail.com");
     cy.get("#open-text-area").type(longText, { delay: 0 });
     cy.get("#phone-checkbox").check().should("be.checked");
     cy.contains("button", "Enviar").click();
@@ -48,8 +48,8 @@ describe("Central de Atendimento ao Cliente TAT", () => {
     cy.get("#lastName").type("Lima").should("have.value", "Lima");
     cy.get("#lastName").clear().should("have.value", "");
     cy.get("#email")
-      .type("limarafa9@gmail.com")
-      .should("have.value", "limarafa9@gmail.com");
+      .type("testeemail@gmail.com")
+      .should("have.value", "testeemail@gmail.com");
     cy.get("#email").clear().should("have.value", "");
     cy.get("#phone").type("958577304").should("have.value", "958577304");
     cy.get("#phone").clear().should("have.value", "");
@@ -61,12 +61,6 @@ describe("Central de Atendimento ao Cliente TAT", () => {
   });
 
   it("envia o formuário com sucesso usando um comando customizado", () => {
-    // const data = {
-    //   firstName: "Lidia",
-    //   lastName: "Cecilia",
-    //   email: "limarafa9@gmail.com",
-    //   text: "Teste.",
-    // };
     cy.fillMandatoryFieldsAndSubmit();
     cy.get(".success").should("be.visible");
   });
